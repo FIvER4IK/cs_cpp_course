@@ -7,4 +7,4 @@ add_executable(noder src/main.cpp src/node.cpp)
 # target_link_libraries(${PROJECT_NAME} PRIVATE libname1 libname2 libname3)
 # Если нужна линковка с другими библиотеками
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+target_compile_features(noder PRIVATE cxx_std_17)
