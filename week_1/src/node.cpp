@@ -1,4 +1,4 @@
-#include "node.hpp"
+/*#include "node.hpp"
 
 #include <iostream>
 
@@ -12,7 +12,7 @@ namespace
  * Находит позицию на которой узел element находится в цепи nod
  * Индексация начинается с 1, 0 - не найден
  */
-std::size_t index(node* nod, node* element) {
+/*std::size_t index(node* nod, node* element) {
     std::size_t size = 1;
     while (nod)
     {
@@ -63,3 +63,4 @@ void insert (node* nod, std::size_t i, node* chain) {
 }
 
 } // noder
+*/
