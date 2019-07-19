@@ -1,43 +1,46 @@
 #include <iostream>
+#include <vector>
 #include "node.hpp"
 
 int main ()
 {
-    noder::node* hello = noder::create_node('h');
-    noder::node* assign = hello;
-    assign = assign->next = noder::create_node('e');
-    assign = assign->next = noder::create_node('l');
-    assign = assign->next = noder::create_node('l');
-    assign = assign->next = noder::create_node('o');
-
-    noder::node* world = noder::create_node('w');
-    assign = world;
-    assign = assign->next = noder::create_node('o');
-    assign = assign->next = noder::create_node('r');
-    assign = assign->next = noder::create_node('l');
-    assign = assign->next = noder::create_node('d');
-    assign->next = world; // world зацикливается
-
-    // Задача на подумать, что будет если сделать так? Какая функция не справиться с таким графом?
-    // assign->next = assign;
 
 
-    
+    std::vector<node*> arr;
 
-    if (!noder::is_circular(hello)) // Если нет цикла
-        noder::print (hello); // Печатаем 
+    node* he =  new node('h');
 
-    if (!is_circular(world)) // Если нет цикла
-        noder::print (world); // Печатаем 
+    he->set_next(new node('e'));
+
+    node* lo = new node('l');
+    lo->set_next(new node('o'));
 
     std::cout << "\n";
 
-    assign->next = nullptr; // Снимаем цикличность
 
-    noder::concate(hello, world);
-    noder::concate(hello, noder::create_node('\n'));
-    noder::insert(noder::create_node(' '), 5, hello);
+    he->concate(lo);
 
-    noder::print(hello); // Должно распечатать hello world\n
+    he->concate(new node('!'));
 
+    he->insert(3, new node('l'));
+
+    he->print();
+
+    std::cout << "\n" << he->get_length() << "\n";
+
+    /*node *save = he->get_next();
+    while(save != nullptr) {
+        delete he;
+        he = save;
+        save = he->get_next();
+    }*/
+
+
+    while(he != nullptr) {
+        arr.push_back(he);
+        he = he->get_next();
+    }
+    for(node* i : arr){
+        delete i;
+    }
 }
